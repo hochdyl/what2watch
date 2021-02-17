@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}📺 {% trans 'Edit profile' %}{% endblock %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    {% if not user.is_authenticated %}
+        <div class="alert alert-warning" role="alert">{% trans "You are not logged in." %}</div>
+    {% else %}
+        <section class="generic-infos">
+            <div class="panels d-flex">
+                <section class="panel tags">
+                    <header>{% trans 'Tags' %}</header>
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="update_tags" value="True">
+                        <button class="w-100 btn btn-md btn-main-color" type="submit">{% trans 'Confirm selected tags' %}</button>
+                        <ul>
+                            {% if tags %}
+                                {% for tag in tags %}
+                                    <li class="d-flex flex-row justify-content-between">
+                                        <h1>{{ tag }}</h1>
+                                        <div>
+                                            <input type="checkbox" name="tags_followed[]" value="{{ tag.id }}"
+                                            {% for followed_tag in followed_tags %}
+                                                {% if tag.id == followed_tag.id %}
+                                                    checked
+                                                {% endif %}
+                                            {% endfor %}
+                                            >
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            {% else %}
+                                <li class="separator">📺 {% trans 'There are no tags yet' %}</li>
+                            {% endif %}
+                        </ul>
+                    </form>
+                </section>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

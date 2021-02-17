@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}📺 {% trans 'About' %}{% endblock %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <h1 class="h1 mt-4">📺 {% trans 'About' %} What2Watch</h1>
+    <header class="comment-container">
+        <p>{% trans 'This website was made for a school project. It introduced me to the web framework Django using Python language.' %}</p>
+        <p class="text-end fw-normal fst-italic mt-3">{% trans 'Made by' %} HOCHET Dylan</p>
+    </header>
+
+{% endblock %}

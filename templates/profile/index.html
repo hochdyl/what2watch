@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}📺 {% trans 'Profile' %}{% endblock %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    {% if not user.is_authenticated %}
+        <div class="alert alert-warning" role="alert">{% trans "You need to be logged in to see this." %}</div>
+    {% else %}
+        <header class="generic-header">
+            <div class="d-flex flex-row">
+                <div class="text-center">
+                    <img class="avatar-box" src="{{ object.avatar.url }}">
+                    {% if user.id == object.id %}
+                        <a href="{% url 'profile_edit' user.id %}"><button class="btn btn-third-color mt-1" type="submit">{% trans 'Edit profile' %}</button></a>
+                    {% endif %}
+                </div>
+                <div class="infos d-flex flex-column">
+                    <h1>{{ object }}</h1>
+                    <h2>
+                    {% if object.liked_tags.all %}
+                        {% for liked_tag in object.liked_tags.all %}
+                            <span class="badge bg-main-color">{{ liked_tag }}</span>
+                        {% endfor %}
+                    {% endif %}
+                    </h2>
+                    <h2><span class="badge bg-third-color mt-1 mb-3">{% trans 'Registered since' %} {{ object.date_joined|date:'F Y' }}</span></h2>
+                </div>
+
+            </div>
+        </header>
+
+        <section class="generic-infos">
+            <h2>{% trans 'Liked shows' %}</h2>
+            <div class="banners-list d-flex">
+                {% if liked_shows %}
+                    {% for liked_show in liked_shows %}
+                        <a href="{% url 'shows_detail' liked_show.id %}">
+                            <div class="banner d-flex flex-column">
+                                <img src="{{ liked_show.banner.url }}">
+                                <h1>{{ liked_show.name }}</h1>
+                                <h2 class="text-center"><span class="badge bg-second-color mb-1">{% trans 'Followed by' %} {{ liked_show.followers.count }} {% trans 'people' %}</span></h2>
+                            </div>
+                        </a>
+                    {% endfor %}
+                {% else %}
+                    <h3 class="h2 mt-4 mb-4 text-center">📺 {% trans "This user hasn't add any show yet" %}</h3>
+                {% endif %}
+            </div>
+
+            <h2>{% trans 'Comments' %}</h2>
+            <div class="comments-list d-flex flex-column">
+                {% if ratings %}
+                    {% for rating in ratings %}
+                        <div class="comment-container d-flex flex-row">
+                            <img src="{{ rating.user.avatar.url }}">
+                            <div class="d-flex flex-column comment-infos">
+                                <h3>{{ rating.show }}</h3>
+                                <div>{{ rating.note }}/5</div>
+                                <p>"{{ rating.comment }}"</p>
+                                <div class="comment-date">{% trans 'At' %} {{ rating.published_at }}</div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <h3 class="h2 mt-4 mb-4 text-center">📺 {% trans "This user hasn't posted any comment yet" %}</h3>
+                {% endif %}
+            </div>
+        </section>
+
+    {% endif %}
+{% endblock %}

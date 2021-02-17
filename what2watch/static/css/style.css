@@ -1,0 +1,431 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: #000;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.btn-main-color {
+  background-color: #fbd737;
+}
+.btn-main-color:hover {
+  background-color: #e7c834;
+}
+
+.btn-third-color {
+  background-color: #d2d2d2;
+}
+.btn-third-color:hover {
+  background-color: #fbd737;
+}
+
+* {
+  transition: 0.2s;
+}
+*::-webkit-scrollbar-track {
+  background-color: #d2d2d2;
+}
+*::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+  background-color: #212529;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #212529;
+}
+
+main .search-container {
+  padding: 100px 100px 30px 100px;
+}
+@media screen and (max-width: 992px) {
+  main .search-container {
+    padding: 100px 30px;
+  }
+}
+@media screen and (max-width: 992px) {
+  main .search-container {
+    padding: 30px 10px;
+  }
+}
+main .search-container h1 {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+main .small-search-container {
+  padding: 30px;
+}
+@media screen and (max-width: 992px) {
+  main .small-search-container {
+    padding: 30px 10px;
+  }
+}
+main .small-search-container h1 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+main .panels {
+  flex-flow: row;
+  justify-content: space-around;
+  padding: 40px;
+}
+@media screen and (max-width: 1200px) {
+  main .panels {
+    flex-flow: column;
+  }
+  main .panels .next-episodes {
+    margin-bottom: 30px !important;
+  }
+}
+@media screen and (max-width: 992px) {
+  main .panels {
+    padding: 30px 10px;
+  }
+}
+main .panels .panel {
+  width: 45%;
+  -webkit-box-shadow: 0px 15px 20px -10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 15px 20px -10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 15px 20px -10px rgba(0, 0, 0, 0.4);
+  height: fit-content;
+  border-radius: 0 0 5px 5px;
+}
+@media screen and (max-width: 1200px) {
+  main .panels .panel {
+    width: 70%;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 992px) {
+  main .panels .panel {
+    width: 100%;
+  }
+}
+main .panels .panel header {
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px 10px 0 0;
+  padding: 5px 15px;
+  background-color: #212529;
+  color: #FFF;
+}
+main .panels .panel ul {
+  max-height: 400px;
+  overflow: auto;
+  border-radius: 0 0 10px 10px;
+}
+main .panels .panel ul .separator {
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
+  background-color: #fbd737;
+  border-bottom: none;
+}
+main .panels .panel ul li {
+  border-bottom: 2px solid #212529;
+}
+main .panels .panel ul li:last-of-type {
+  border-bottom: none;
+}
+main .panels .panel ul li .banner-container {
+  width: 100px;
+  max-height: 160px;
+}
+main .panels .panel ul li .banner-container img {
+  max-width: 100px;
+  max-height: 160px;
+}
+main .panels .panel ul li .infos-container {
+  padding: 10px;
+}
+main .panels .panel ul li .infos-container h1 {
+  padding: 5px;
+  font-weight: bold;
+}
+main .panels .panel ul li .infos-container h2, main .panels .panel ul li .infos-container h3 {
+  padding: 0 5px;
+}
+main .panels .panel ul li .infos-container h3 {
+  font-style: italic;
+  font-size: 14px;
+}
+main .panels .panel ul li .infos-container button {
+  margin: 5px 0 5px 5px;
+  width: fit-content;
+}
+main .banners-list {
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 30px;
+}
+main .banners-list .banner {
+  border-radius: 10px;
+  border: #d2d2d2 solid 2px;
+  margin-bottom: 20px;
+  background-color: #d2d2d2;
+}
+main .banners-list .banner:hover {
+  transform: scale(1.05);
+  border: #fbd737 solid 2px;
+  cursor: pointer;
+  background-color: #fbd737;
+  -webkit-box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
+}
+main .banners-list .banner:hover h1 {
+  background-color: #fbd737;
+}
+main .banners-list .banner img {
+  border-radius: 6px 6px 0 0;
+  max-width: 180px;
+  max-height: 300px;
+}
+main .banners-list .banner h1 {
+  text-align: center;
+  font-size: 18px;
+  background-color: #d2d2d2;
+  padding: 5px;
+}
+main .generic-header {
+  padding: 30px;
+}
+@media screen and (max-width: 540px) {
+  main .generic-header {
+    padding: 30px 10px;
+  }
+}
+main .generic-header .avatar-box {
+  border-radius: 10px;
+  width: 150px;
+  height: 150px;
+  border: #212529 solid 2px;
+}
+@media screen and (max-width: 540px) {
+  main .generic-header .avatar-box {
+    width: 75px;
+    height: 75px;
+  }
+}
+main .generic-header .banner-box {
+  border-radius: 10px;
+  width: 180px;
+  max-height: 300px;
+  border: #212529 solid 2px;
+}
+@media screen and (max-width: 768px) {
+  main .generic-header .banner-box {
+    width: 120px;
+    max-height: 240px;
+  }
+}
+main .generic-header .infos {
+  padding: 30px;
+  width: 100%;
+}
+@media screen and (max-width: 540px) {
+  main .generic-header .infos {
+    padding: 0 10px;
+  }
+}
+main .generic-header .infos h1 {
+  width: 100%;
+  font-size: 30px;
+}
+main .generic-header .infos .summary {
+  padding: 5px 20px;
+  border-left: #212529 solid 2px;
+}
+main .generic-infos {
+  padding: 30px;
+}
+@media screen and (max-width: 540px) {
+  main .generic-infos {
+    padding: 30px 10px;
+  }
+}
+main .generic-infos h2 {
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #212529;
+  color: #FFF;
+}
+main .generic-infos .panels {
+  padding: 0 0 60px 0;
+  padding: 0 0 60px 0;
+}
+main .generic-infos .panels .btn-main-color {
+  border-bottom: #212529 solid 2px;
+}
+main .generic-infos .panels .episode {
+  padding: 10px;
+}
+main .generic-infos .panels .episode input {
+  margin: auto 0;
+  transform: scale(1.2);
+}
+main .generic-infos .tags h1 {
+  width: 90%;
+  padding: 10px;
+}
+main .generic-infos .tags div {
+  width: 10%;
+  text-align: center;
+  margin: auto;
+}
+main .generic-infos .tags div input {
+  transform: scale(1.2);
+}
+main .your-rating {
+  padding: 30px;
+  width: 50%;
+  margin: auto;
+}
+@media screen and (max-width: 540px) {
+  main .your-rating {
+    padding: 30px 10px;
+  }
+}
+main .your-rating textarea {
+  width: 100%;
+  height: 100px;
+  resize: none;
+}
+main .your-rating .rating {
+  margin: auto 0;
+}
+main .your-rating .rating select {
+  height: 30px;
+}
+main .comments-list {
+  padding: 30px;
+}
+@media screen and (max-width: 540px) {
+  main .comments-list {
+    padding: 30px 10px;
+  }
+}
+main .comments-list .comment-infos {
+  padding: 10px;
+  width: 100%;
+}
+main .comments-list .comment-infos h3 {
+  font-size: 18px;
+}
+main .comments-list .comment-infos p {
+  margin: 10px 0;
+  font-style: italic;
+  font-weight: normal;
+}
+main .comments-list .comment-infos .comment-date {
+  text-align: end;
+  font-weight: normal;
+  font-size: 14px;
+}
+main .registration-form {
+  margin: auto;
+  padding: 20px;
+  width: 30%;
+}
+@media screen and (max-width: 1200px) {
+  main .registration-form {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 768px) {
+  main .registration-form {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 540px) {
+  main .registration-form {
+    width: 100%;
+  }
+}
+main .registration-form input, main .registration-form button {
+  margin-bottom: 10px;
+}
+main .registration-form .d-flex {
+  justify-content: space-evenly;
+  flex-flow: row;
+}
+@media screen and (max-width: 768px) {
+  main .registration-form .d-flex a {
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  main .registration-form .d-flex {
+    flex-flow: column;
+  }
+}
+main .comment-container {
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 15px;
+  background-color: #d2d2d2;
+  border: #d2d2d2 solid 2px;
+  margin-bottom: 30px;
+}
+main .comment-container img {
+  height: 160px;
+  max-width: 160px;
+}
+main .comment-container .source .small-avatar {
+  border-radius: 10px;
+  height: 50px;
+  width: 50px;
+}
+main .comment-container .source .infos {
+  margin: auto 0;
+  padding: 0 10px;
+}
+main .bg-main-color {
+  background-color: #fbd737;
+  color: inherit;
+}
+main .bg-second-color {
+  background-color: #212529;
+  color: #FFF;
+}
+main .bg-third-color {
+  background-color: #d2d2d2;
+  color: inherit;
+}
+main .alert:first-of-type {
+  margin-top: 1rem;
+}
+main img {
+  object-fit: cover;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,17 @@
+// Website buttons
+
+.btn-main-color {
+  background-color: $main-color;
+
+  &:hover {
+    background-color: $main-color-darker;
+  }
+}
+
+.btn-third-color {
+  background-color: $third-color;
+
+  &:hover {
+    background-color: $main-color;
+  }
+}

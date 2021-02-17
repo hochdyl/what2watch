@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}📺 NOM DE L'ACTEUR{% endblock %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <header class="generic-header">
+        <div class="d-flex flex-row">
+            <img class="banner-box" src="{{ object.portrait.url }}">
+            <div class="infos d-flex flex-column">
+                <h1>{{ object }}</h1>
+                <h2><span class="badge bg-third-color mt-1 mb-3">{% trans 'Appears in' %} {{ shows_count }} {% trans 'shows' %}</span></h2>
+                <h2></h2>
+            </div>
+        </div>
+    </header>
+
+    <section class="generic-infos">
+        <h2>{% trans 'Casting' %}</h2>
+        {% if castings %}
+            <div class="banners-list d-flex">
+                {% for casting in castings %}
+                    <a href="{% url 'shows_detail' casting.show.id %}">
+                        <div class="banner d-flex flex-column">
+                            <img src="{{ casting.portrait.url }}">
+                            <h1>{{ casting.show }}</h1>
+                            <h3 class="text-center fst-italic">{{ casting.role_name }}</h3>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <h3 class="h2 mt-4 mb-4 text-center">📺 {% trans "This actor hasn't played in any show that we know yet" %}</h3>
+        {% endif %}
+    </section>
+
+{% endblock %}

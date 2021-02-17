@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}📺 {{ object.name }}{% endblock %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <header class="generic-header">
+        <div class="d-flex flex-row">
+            <div class="text-center">
+                <img class="banner-box" src="{{ object.banner.url }}">
+                {% if user.is_authenticated %}
+                    <form method="post">
+                        {% csrf_token %}
+                        {% if is_user_following %}
+                            <input type="hidden" name="follow" value="False">
+                            <button class="btn btn-danger mt-1" type="submit">{% trans 'Unfollow' %} 💔</button>
+                        {% else %}
+                            <input type="hidden" name="follow" value="True">
+                            <button class="btn btn-third-color mt-1" type="submit">{% trans 'Follow' %} 💖</button>
+                        {% endif %}
+                    </form>
+                {% endif %}
+            </div>
+            <div class="infos d-flex flex-column">
+                <h1>{{ object.name }}</h1>
+                <h1>{{ test }}</h1>
+                <h2>
+                    {% for tag in object.tags.all %}
+                        <span class="badge bg-main-color">{{ tag }}</span>
+                    {% endfor %}
+                </h2>
+                <h2><span class="badge bg-third-color mt-1">{{ object.status }}</span></h2>
+                <h2><span class="badge bg-third-color mt-1 mb-3">{% trans 'Followed by' %} {{ object.followers.count }} {% trans 'people' %}</span></h2>
+                {% if next_episode %}
+                    <h2><span class="badge bg-success mt-1 mb-3">{% trans 'Next episode' %} : {{ next_episode.release }}</span></h2>
+                {% endif %}
+                {% if object.summary %}
+                    <p class="summary">{{ object.summary }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <section class="generic-infos">
+        <div class="panels d-flex">
+            <section class="panel episodes">
+                <header>{% trans 'Episodes' %}</header>
+                {% if user.is_authenticated %}
+                    <form method="post">
+                        {% csrf_token %}
+                        {% if episodes %}
+                            <button class="w-100 btn btn-md btn-main-color" type="submit">{% trans 'Confirm episodes watched' %}</button>
+                            <ul>
+                            <input type="hidden" name="update_episodes" value="True">
+                            {% for episode in episodes %}
+                                <li class="episode d-flex flex-row justify-content-between">
+                                    <div>{% trans 'Season' %} {{ episode.season }} - {% trans 'episode' %} {{ episode.episode }}</div>
+                                    <input type="checkbox" name="episodes_watched[]" value="{{ episode.id }}"
+                                    {% for episode_watched in episodes_watched %}
+                                        {% if episode.id == episode_watched.episode.id %}
+                                            checked
+                                        {% endif %}
+                                    {% endfor %}
+                                    >
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                            <ul>
+                                <li class="separator">📺 {% trans 'There are no episodes published yet !' %}</li>
+                        {% endif %}
+                        </ul>
+                    </form>
+                {% else %}
+                    {% if episodes %}
+                        <ul>
+                        {% for episode in episodes %}
+                            <li class="episode d-flex flex-row justify-content-between">
+                                <div>{% trans 'Season' %} {{ episode.season }} - {% trans 'episode' %} {{ episode.episode }}</div>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <ul>
+                            <li class="separator">📺 {% trans 'There are no episodes published yet !' %}</li>
+                    {% endif %}
+                    </ul>
+                {% endif %}
+            </section>
+
+            <section class="panel actors">
+                <header>{% trans 'Casting' %}</header>
+                <ul>
+                    {% if casting %}
+                        {% for actor in casting %}
+
+                                <li class="d-flex flex-row">
+                                    <a href="{% url 'actors_detail' actor.actor.id %}">
+                                        <div class="banner-container"><img src="{{ actor.portrait.url }}"></div>
+                                    </a>
+                                    <div class="infos-container d-flex flex-column">
+                                        <h1>{{ actor.actor }}</h1>
+                                        <h3>{% trans 'As' %} : {{ actor.role_name }}</h3>
+                                    </div>
+                                </li>
+
+                        {% endfor %}
+                    {% else %}
+                        <li class="separator">📺 {% trans 'There are no actors that we know in this show !' %}</li>
+                    {% endif %}
+                </ul>
+            </section>
+        </div>
+
+        <h2>{% trans 'Comments' %}</h2>
+
+        {% if your_rating %}
+            <div class="comments-list d-flex flex-column">
+                <div class="d-flex flex-column comment-container comment-infos">
+                    <div class="source d-flex flex-row">
+                        <img class="small-avatar d-block" src="{{ your_rating.user.avatar.url }}">
+                        <div class="infos d-flex flex-column">
+                            <div>{{ your_rating.user.username }}</div>
+                            <div>{{ your_rating.note }}/5</div>
+                        </div>
+                    </div>
+                    <p>"{{ your_rating.comment }}"</p>
+                    <div class="comment-date">
+                        <form method="post">
+                            {% csrf_token %}
+                            <span class="mx-2">{% trans 'At' %} {{ your_rating.published_at }}</span>
+                            <input type="hidden" name="delete" value="{{ your_rating.id }}">
+                            <button class="btn btn-md btn-danger text-end" name="remove" type="submit">{% trans 'Delete' %}</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+             <div class="your-rating">
+                <form method="post">
+                    {% csrf_token %}
+
+                    <label class="w-100">{% trans 'Need to express yourself ?' %}</label>
+                    <textarea name="comment" maxlength="10000" required></textarea>
+
+                    <div class="d-flex flex-row justify-content-between">
+                        <div class="rating">
+                            <select name="note">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5" selected>5</option>
+                            </select>
+                            <label>{% trans 'Your note' %}</label>
+                        </div>
+                        <button class="btn btn-md btn-main-color text-end" type="submit">{% trans 'Add' %}</button>
+                    </div>
+                </form>
+            </div>
+        {% endif %}
+
+        <div class="comments-list d-flex flex-column">
+            {% if ratings %}
+                {% for rating in ratings %}
+                    {% if not rating.user.id == user.id %}
+                        <div class="d-flex flex-column comment-container comment-infos">
+                            <div class="source d-flex flex-row">
+                                <a href="{% url 'profile' rating.user.id %}">
+                                    <img class="small-avatar d-block" src="{{ rating.user.avatar.url }}">
+                                </a>
+                                <div class="infos d-flex flex-column">
+                                    <div>{{ rating.user }}</div>
+                                    <div>{{ rating.note }}/5</div>
+                                </div>
+                            </div>
+                            <p>"{{ rating.comment }}"</p>
+                            <div class="comment-date">{% trans 'At' %} {{ rating.published_at }}</div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <h3 class="h2 mt-4 mb-4 text-center">📺 {% trans "There are no comments yet, why wouldn't you be the first ?" %}</h3>
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock %}

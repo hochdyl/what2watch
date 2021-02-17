@@ -1,0 +1,543 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-17 05:29+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\templates\about\index.html:5 .\templates\about\index.html:13
+#: .\templates\base.html:53 .\templates\base.html:66
+msgid "About"
+msgstr "A propos"
+
+#: .\templates\about\index.html:15
+msgid ""
+"This website was made for a school project. It introduced me to the web "
+"framework Django using Python language."
+msgstr ""
+"Ce site web à été créer pour un projet scolaire.Il m'a introduit au "
+"Framework web Django, utilisant le langage Python"
+
+#: .\templates\about\index.html:16
+msgid "Made by"
+msgstr "Créer par"
+
+#: .\templates\actors\detail.html:18
+msgid "Appears in"
+msgstr "Apparait dans"
+
+#: .\templates\actors\detail.html:18
+msgid "shows"
+msgstr "séries"
+
+#: .\templates\actors\detail.html:25 .\templates\shows\detail.html:96
+msgid "Casting"
+msgstr "Casting"
+
+#: .\templates\actors\detail.html:39
+msgid "This actor hasn't played in any show that we know yet"
+msgstr "Cet acteur n'a joué dans aucune série répértoriée pour le moment"
+
+#: .\templates\actors\index.html:24
+msgid "There are no actors to display"
+msgstr "Il n'y a pas d'acteurs à afficher"
+
+#: .\templates\base.html:29
+msgid "Home"
+msgstr "Accueil"
+
+#: .\templates\base.html:32 .\templates\search\index.html:5
+#: .\templates\shows\index.html:5
+msgid "Shows"
+msgstr "Séries"
+
+#: .\templates\base.html:35
+msgid "Actors"
+msgstr "Acteurs"
+
+#: .\templates\base.html:41 .\templates\index.html:17 .\templates\index.html:18
+#: .\templates\search\index.html:18 .\templates\search\index.html:19
+msgid "Search"
+msgstr "Rechercher"
+
+#: .\templates\base.html:45 .\templates\profile\index.html:5
+msgid "Profile"
+msgstr "Profil"
+
+#: .\templates\base.html:48
+msgid "My profile"
+msgstr "Mon profil"
+
+#: .\templates\base.html:49 .\templates\profile\edit.html:5
+#: .\templates\profile\index.html:21
+msgid "Edit profile"
+msgstr "Éditer le profil"
+
+#: .\templates\base.html:56
+msgid "Log out"
+msgstr "Déconnexion"
+
+#: .\templates\base.html:60 .\templates\registration\login.html:5
+#: .\templates\registration\login.html:24
+#: .\templates\registration\password_reset_complete.html:29
+msgid "Log in"
+msgstr "Connexion"
+
+#: .\templates\base.html:63 .\templates\registration\signup.html:5
+#: .\templates\registration\signup.html:22
+msgid "Sign up"
+msgstr "S'enregistrer"
+
+#: .\templates\index.html:14
+msgid "What are we going to watch today ?"
+msgstr "Qu'allons nous regarder aujourd'hui ?"
+
+#: .\templates\index.html:25
+msgid "Your watchlist"
+msgstr "Votre liste de surveillance"
+
+#: .\templates\index.html:30
+msgid "Did you missed it ?"
+msgstr "L'auriez-vous manqué ?"
+
+#: .\templates\index.html:38 .\templates\index.html:58
+#: .\templates\shows\detail.html:63 .\templates\shows\detail.html:84
+msgid "Season"
+msgstr "Saison"
+
+#: .\templates\index.html:38 .\templates\index.html:58
+#: .\templates\shows\detail.html:63 .\templates\shows\detail.html:84
+msgid "episode"
+msgstr "épisode"
+
+#: .\templates\index.html:43
+msgid "Watched"
+msgstr "Vu"
+
+#: .\templates\index.html:50
+msgid "Upcoming episodes"
+msgstr "Épisodes à venir"
+
+#: .\templates\index.html:64
+msgid "Don't be in such a hurry, more comming soon"
+msgstr "Ne soyez pas si presser, il y en aura plus bientôt"
+
+#: .\templates\index.html:66
+msgid "Nothing to show, start adding ongoin shows !"
+msgstr "Rien à afficher, commencer par ajouter des séries"
+
+#: .\templates\index.html:69
+msgid "Sign up to get your own watchlist.."
+msgstr "Enregister-vous pour avoir votre propre liste de surveillance.."
+
+#: .\templates\index.html:75
+msgid "Recommended shows"
+msgstr "Les séries recommandées"
+
+#: .\templates\index.html:92 .\templates\profile\index.html:48
+#: .\templates\search\index.html:31 .\templates\shows\detail.html:39
+#: .\templates\shows\index.html:20
+msgid "Followed by"
+msgstr "Suivi par"
+
+#: .\templates\index.html:92 .\templates\profile\index.html:48
+#: .\templates\search\index.html:31 .\templates\shows\detail.html:39
+#: .\templates\shows\index.html:20
+msgid "people"
+msgstr "personnes"
+
+#: .\templates\index.html:96 .\templates\shows\detail.html:25
+msgid "Follow"
+msgstr "Suivre"
+
+#: .\templates\index.html:102
+msgid "There's nothing, maybe you can try to add tags?"
+msgstr "Il n'y a rien, peut-être pourriez-vous ajouter des étiquettes ?"
+
+#: .\templates\index.html:105
+msgid "..and some good recommendations !"
+msgstr "..et de bonnes recommandations !"
+
+#: .\templates\profile\edit.html:14
+#: .\templates\registration\password_change_done.html:18
+#: .\templates\registration\password_change_form.html:18
+msgid "You are not logged in."
+msgstr "Vous n'êtes pas connecté"
+
+#: .\templates\profile\edit.html:19
+msgid "Tags"
+msgstr "Étiquettes"
+
+#: .\templates\profile\edit.html:23
+msgid "Confirm selected tags"
+msgstr "Confirmer les étiquettes séléctionnées"
+
+#: .\templates\profile\edit.html:41
+msgid "There are no tags yet"
+msgstr "Il n'y a pas d'étiquettes pour le moment"
+
+#: .\templates\profile\index.html:14
+msgid "You need to be logged in to see this."
+msgstr "Vous devez être connecté pour voir ça"
+
+#: .\templates\profile\index.html:33
+msgid "Registered since"
+msgstr "Enregistré depuis"
+
+#: .\templates\profile\index.html:40
+msgid "Liked shows"
+msgstr "Les séries suivies"
+
+#: .\templates\profile\index.html:53
+msgid "This user hasn't add any show yet"
+msgstr "Cet utilisateur n'a pas encore ajouté de séries"
+
+#: .\templates\profile\index.html:57 .\templates\shows\detail.html:119
+msgid "Comments"
+msgstr "Commentaires"
+
+#: .\templates\profile\index.html:67 .\templates\shows\detail.html:135
+#: .\templates\shows\detail.html:183
+msgid "At"
+msgstr "A"
+
+#: .\templates\profile\index.html:72
+msgid "This user hasn't posted any comment yet"
+msgstr "Cet utilisateur n'a pas encore posté de commentaires"
+
+#: .\templates\registration\login.html:16
+msgid "Your username or password didn't match. Please try again."
+msgstr "Votre nom d'utilisateur ou votre mot de passe ne correspondent pas. Veuillez "
+"réessayer"
+
+#: .\templates\registration\login.html:20
+#: .\templates\registration\password_reset_complete.html:18
+#: .\templates\registration\password_reset_confirm.html:18
+#: .\templates\registration\password_reset_done.html:18
+#: .\templates\registration\password_reset_form.html:18
+#: .\templates\registration\signup.html:18
+msgid "You are already logged in."
+msgstr "Vous êtes déjà connecter"
+
+#: .\templates\registration\login.html:33
+msgid "Sign in"
+msgstr "Se connecter"
+
+#: .\templates\registration\login.html:39
+msgid "Lost password ?"
+msgstr "Mot de passe oublié"
+
+#: .\templates\registration\login.html:43
+msgid "Create an account"
+msgstr "Créer un compte"
+
+#: .\templates\registration\password_change_done.html:5
+#: .\templates\registration\password_change_done.html:22
+#: .\templates\registration\password_change_form.html:5
+#: .\templates\registration\password_change_form.html:22
+msgid "Password change"
+msgstr "Changement de mot de passe"
+
+#: .\templates\registration\password_change_done.html:25
+msgid "Your password was changed."
+msgstr "Votre mot de passe à été changé"
+
+#: .\templates\registration\password_change_form.html:25
+msgid ""
+"Please enter your old password, for security’s sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
+msgstr ""
+"Veuillez entrer votre ancien mot de passe, pour des raisons de sécurité, "
+"puis votre nouveaumot de passe 2 fois pour que l'ont puisse vérifié si vous "
+"l'avez correctement tapé."
+
+#: .\templates\registration\password_change_form.html:40
+#: .\templates\registration\password_reset_confirm.html:38
+msgid "Change my password"
+msgstr "Changer mon mot de passe"
+
+#: .\templates\registration\password_reset_complete.html:5
+#: .\templates\registration\password_reset_complete.html:22
+#: .\templates\registration\password_reset_done.html:5
+#: .\templates\registration\password_reset_done.html:22
+#: .\templates\registration\password_reset_form.html:5
+#: .\templates\registration\password_reset_form.html:22
+msgid "Password reset"
+msgstr "Réinitialisation du mot de passe"
+
+#: .\templates\registration\password_reset_complete.html:25
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr "Votre mot de passe à été défini. Vous pouvez désormais vous connecter."
+
+#: .\templates\registration\password_reset_confirm.html:5
+#: .\templates\registration\password_reset_confirm.html:23
+msgid "Password reset confirmation"
+msgstr "Confirmation de la réinitialisation du mot de passe"
+
+#: .\templates\registration\password_reset_confirm.html:26
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+"Veuillez entrer votre nouveau mot de passe 2 fois pour que l'on puisse "
+"vérifier que vous l'ayez tapécorrectement."
+
+#: .\templates\registration\password_reset_confirm.html:42
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
+"Le lien de réinitialisation du mot de passe est invalide, possiblement car "
+"il a été utilisé. Veuillez faire une nouvelle demande de réinitialisation de "
+"mot de passe."
+
+#: .\templates\registration\password_reset_done.html:25
+msgid ""
+"We’ve emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr ""
+"Nous vous avons envoyé par mail les instruction pour paramétrer votre mot de "
+"passe, si uncompte existe avec le mail indiqué. Vous deverez le recevoir "
+"dans quelques instants."
+
+#: .\templates\registration\password_reset_done.html:29
+msgid ""
+"If you don’t receive an email, please make sure you’ve entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+"Si vous ne recevez aucun email, vérifier que vous ayez entré la bonne "
+"adresse et vérifié votre dossier spam"
+
+#: .\templates\registration\password_reset_form.html:25
+msgid ""
+"Forgotten your password? Enter your email address below, and we’ll email "
+"instructions for setting a new one."
+msgstr ""
+"Vous avez oublié votre mot de passe ? Entrer votre adresse mail en-dessous "
+"et nous vous enverrons les instruction pour le réinitialiser."
+
+#: .\templates\registration\password_reset_form.html:34
+msgid "Reset my password"
+msgstr "Réinitialisé mon mot de passe"
+
+#: .\templates\registration\signup.html:37
+msgid "Register"
+msgstr "S'enregistrer"
+
+#: .\templates\registration\signup.html:41
+msgid "Already registered ?"
+msgstr "Déjà enregistré ?"
+
+#: .\templates\search\index.html:14
+msgid "Looking for something ?"
+msgstr "Vous chercher quelque chose ?"
+
+#: .\templates\search\index.html:36
+msgid "We didn't find any results"
+msgstr "Nous n'avons pas trouvé de resultats"
+
+#: .\templates\shows\detail.html:22
+msgid "Unfollow"
+msgstr "Ne plus suivre"
+
+#: .\templates\shows\detail.html:41
+msgid "Next episode"
+msgstr "Prochain episode"
+
+#: .\templates\shows\detail.html:53
+msgid "Episodes"
+msgstr "Épisodes"
+
+#: .\templates\shows\detail.html:58
+msgid "Confirm episodes watched"
+msgstr "Confirmer les épisodes vus"
+
+#: .\templates\shows\detail.html:75 .\templates\shows\detail.html:89
+msgid "There are no episodes published yet !"
+msgstr "Il n'y a pas encore d'épisodes publiés"
+
+#: .\templates\shows\detail.html:107
+msgid "As"
+msgstr "Dans le rôle"
+
+#: .\templates\shows\detail.html:113
+msgid "There are no actors that we know in this show !"
+msgstr "Il n'y a pas d'acteurs que nous connaissons dans cette série !"
+
+#: .\templates\shows\detail.html:137
+msgid "Delete"
+msgstr "Supprimer"
+
+#: .\templates\shows\detail.html:147
+msgid "Need to express yourself ?"
+msgstr "Besoin de s'exprimer ?"
+
+#: .\templates\shows\detail.html:160
+msgid "Your note"
+msgstr "Votre note"
+
+#: .\templates\shows\detail.html:162
+msgid "Add"
+msgstr "Ajouter"
+
+#: .\templates\shows\detail.html:188
+msgid "There are no comments yet, why wouldn't you be the first ?"
+msgstr ""
+"Il n'y a pas de commentaires pour le moment. Pourquoi ne seriez-vous pas le "
+"premier ?"
+
+#: .\templates\shows\index.html:25
+msgid "There are no shows to display"
+msgstr "Il n'y a pas de séries à afficher"
+
+#: .\what2watch\models.py:49
+msgid "Finished"
+msgstr "Terminé"
+
+#: .\what2watch\models.py:50
+msgid "Still running"
+msgstr "En cours"
+
+#: .\what2watch\models.py:51
+msgid "Paused"
+msgstr "En pause"
+
+#: .\what2watch\models.py:52
+msgid "Not started"
+msgstr "Non-démarrer"
+
+#: .\what2watch\views.py:56
+msgid "This episode has been noted as watched"
+msgstr "Cet épisode a été noté comme vu"
+
+#: .\what2watch\views.py:63
+msgid "This show has been added to your list"
+msgstr "Cette série a été ajoutée à votre liste de suivis"
+
+#: .\what2watch\views.py:132
+msgid "You now follow this show"
+msgstr "Vous suivez maintenant cette série"
+
+#: .\what2watch\views.py:138
+msgid "You unfollowed this show"
+msgstr "Vous avez arreté de suivre cette série"
+
+#: .\what2watch\views.py:153
+msgid "Your watched episodes have been updated"
+msgstr "Vos épisodes vus ont été mis à jour"
+
+#: .\what2watch\views.py:168
+msgid "Your review has been published !"
+msgstr "Votre commentaire a été publié !"
+
+#: .\what2watch\views.py:174
+msgid "Your review has been removed !"
+msgstr "Votre commentaire a été supprimé !"
+
+#: .\what2watch\views.py:239
+msgid "Your tags has been updated"
+msgstr "Vos étiquettes ont été mis a jour"
+
+#: .\what2watch\views.py:254
+#, python-format
+msgid "%(username)s as been created"
+msgstr "%(username)s a été créer"
+
+#: .\what2watch_website\settings.py:130
+msgid "%Y-%m-%d %H:%M:%S"
+msgstr "%d-%m-%Y %H:%M:%S"
+
+#: .\what2watch_website\settings.py:132
+msgid "%Y-%m-%d"
+msgstr "%d-%m-%Y"
+
+#: .\what2watch_website\settings.py:140
+msgid "english"
+msgstr "anglais"
+
+#: .\what2watch_website\settings.py:140
+msgid "french"
+msgstr "français"
+
+#: .\what2watch_website\urls.py:36 .\what2watch_website\urls.py:38
+msgid "search/"
+msgstr "recherche/"
+
+#: .\what2watch_website\urls.py:37
+msgid "search/query"
+msgstr "recherche/requete"
+
+#: .\what2watch_website\urls.py:39 .\what2watch_website\urls.py:40
+msgid "shows/"
+msgstr "series/"
+
+#: .\what2watch_website\urls.py:41 .\what2watch_website\urls.py:42
+msgid "actors/"
+msgstr "acteurs/"
+
+#: .\what2watch_website\urls.py:43
+msgid "profile/"
+msgstr "profil/"
+
+#: .\what2watch_website\urls.py:45
+msgid "profile/edit/"
+msgstr "profil/editer"
+
+#: .\what2watch_website\urls.py:47
+msgid "about/"
+msgstr "apropos/"
+
+#: .\what2watch_website\urls.py:48
+msgid "signup/"
+msgstr "inscription/"
+
+#: .\what2watch_website\urls.py:49
+msgid "login/"
+msgstr "connexion/"
+
+#: .\what2watch_website\urls.py:50
+msgid "logout/"
+msgstr "deconnexion/"
+
+#: .\what2watch_website\urls.py:52
+msgid "password_change/"
+msgstr "modification_mdp/"
+
+#: .\what2watch_website\urls.py:57
+msgid "password_change_done/"
+msgstr "changement_mdp/"
+
+#: .\what2watch_website\urls.py:62
+msgid "password_reset/"
+msgstr "reinitialisation_mdp/"
+
+#: .\what2watch_website\urls.py:67
+msgid "password_reset_done/"
+msgstr "reinitialisation_mdp_reussie/"
+
+#: .\what2watch_website\urls.py:72
+msgid "password_reset_confirm/"
+msgstr "reinitialisation_mdp_confirmation/"
+
+#: .\what2watch_website\urls.py:77
+msgid "password_reset_complete/"
+msgstr "reinitialisation_mdp_terminee/"
+
+#~ msgid "Test message"
+#~ msgstr "Message test"
+
+#~ msgid "home/"
+#~ msgstr "accueil/"

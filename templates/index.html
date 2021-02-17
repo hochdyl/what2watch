@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}📺 What2Watch{% endblock %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <section class="search-container text-center">
+        <h1>{% trans 'What are we going to watch today ?' %}</h1>
+        <form class="form-inline my-2 my-lg-0" method="post" action="{% url 'search_query' %}">
+            {% csrf_token %}
+            <input class="form-control mb-3" type="search" name="s" placeholder="{% trans 'Search' %}" aria-label="Search" required>
+            <button class="btn btn-main-color my-2 my-sm-0" type="submit">{% trans 'Search' %}</button>
+        </form>
+    </section>
+
+
+    <div class="panels d-flex">
+        <section class="panel next-episodes">
+            <header>{% trans 'Your watchlist' %}</header>
+            <ul>
+                {% if user.is_authenticated %}
+                    {% if unwatched_episodes or episodes %}
+                        {% if unwatched_episodes %}
+                            <li class="separator">{% trans 'Did you missed it ?' %}</li>
+                            {% for unwatched_episode in unwatched_episodes %}
+                                <li class="d-flex flex-row">
+                                    <a href="{% url 'shows_detail' unwatched_episode.show.id %}">
+                                        <div class="banner-container"><img src="{{ unwatched_episode.show.banner.url }}"></div>
+                                    </a>
+                                    <div class="infos-container d-flex flex-column">
+                                        <h1>{{ unwatched_episode.show }}</h1>
+                                        <h2><span class="badge bg-third-color mt-1">{% trans 'Season' %} {{ unwatched_episode.season }} - {% trans 'episode' %} {{ unwatched_episode.episode }}</span></h2>
+                                        <h2><span class="badge bg-success mt-1">{{ unwatched_episode.release }}</span></h2>
+                                        <form method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="watch" value="{{ unwatched_episode.id }}">
+                                            <button class="btn btn-third-color" type="submit">{% trans 'Watched' %}</button>
+                                        </form>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                        {% if episodes %}
+                            <li class="separator">{% trans 'Upcoming episodes' %}</li>
+                            {% for episode in episodes %}
+                                <li class="d-flex flex-row">
+                                    <a href="{% url 'shows_detail' episode.show.id %}">
+                                        <div class="banner-container"><img src="{{ episode.show.banner.url }}"></div>
+                                    </a>
+                                    <div class="infos-container d-flex flex-column">
+                                        <h1>{{ episode.show }}</h1>
+                                        <h2><span class="badge bg-third-color mt-1">{% trans 'Season' %} {{ episode.season }} - {% trans 'episode' %} {{ episode.episode }}</span></h2>
+                                        <h2><span class="badge bg-success mt-1">{{ episode.release }}</span></h2>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                        <li class="separator">📺 {% trans "Don't be in such a hurry, more comming soon" %}</li>
+                    {% else %}
+                        <li class="separator">📺 {% trans 'Nothing to show, start adding ongoin shows !' %}</li>
+                    {% endif %}
+                {% else %}
+                    <li class="separator">📺 {% trans 'Sign up to get your own watchlist..' %}</li>
+                {% endif %}
+            </ul>
+        </section>
+
+        <section class="panel recommended-shows">
+            <header>{% trans 'Recommended shows' %}</header>
+            <ul>
+                {% if user.is_authenticated %}
+                    {% if recommendations %}
+                        {% for recommended in recommendations %}
+                            <li class="d-flex flex-row">
+                                <a href="{% url 'shows_detail' recommended.id %}">
+                                    <div class="banner-container"><img src="{{ recommended.banner.url }}"></div>
+                                </a>
+
+                                <div class="infos-container d-flex flex-column">
+                                    <h1>{{ recommended }}</h1>
+                                    <h2>
+                                        {% for tag in recommended.tags.all %}
+                                            <span class="badge bg-main-color">{{ tag }}</span>
+                                        {% endfor %}
+                                    </h2>
+                                    <h2><span class="badge bg-third-color mt-1">{% trans 'Followed by' %} {{ recommended.followers.count }} {% trans 'people' %}</span></h2>
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="follow" value="{{ recommended.id }}">
+                                        <button class="btn btn-third-color" type="submit">{% trans 'Follow' %}</button>
+                                    </form>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <li class="separator">📺 {% trans "There's nothing, maybe you can try to add tags?" %}</li>
+                    {% endif %}
+                {% else %}
+                    <li class="separator">{% trans '..and some good recommendations !' %} 📺</li>
+                {% endif %}
+            </ul>
+        </section>
+    </div>
+{% endblock %}

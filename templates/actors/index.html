@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}📺 Actors{% endblock %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <section class="banners-list d-flex">
+        {% if object_list %}
+            {% for actor in object_list %}
+                <a href="{% url 'actors_detail' actor.id %}">
+                    <div class="banner d-flex flex-column">
+                        <img src="{{ actor.portrait.url }}">
+                        <h1>{{ actor }}</h1>
+                    </div>
+                </a>
+            {% endfor %}
+        {% else %}
+            <h2 class="h2 mt-4 text-center">{% trans 'There are no actors to display' %} 😓</h2>
+        {% endif %}
+    </section>
+{% endblock %}

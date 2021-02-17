@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}📺 {% trans 'Shows' %}{% endblock %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <section class="banners-list d-flex">
+    {% if object_list %}
+        {% for show in object_list %}
+            <a href="{% url 'shows_detail' show.id %}">
+                <div class="banner d-flex flex-column">
+                    <img src="{{ show.banner.url }}">
+                    <h1>{{ show.name }}</h1>
+                    <h2 class="text-center"><span class="badge bg-second-color mb-1">{% trans 'Followed by' %} {{ show.followers.count }} {% trans 'people' %}</span></h2>
+                </div>
+            </a>
+        {% endfor %}
+    {% else %}
+        <h2 class="h2 mt-4 text-center">{% trans 'There are no shows to display' %} 😓</h2>
+    {% endif %}
+    </section>
+{% endblock %}

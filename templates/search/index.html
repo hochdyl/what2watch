@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}📺 {% trans 'Shows' %}{% endblock %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <header class="small-search-container">
+        <h1>{% trans 'Looking for something ?' %}</h1>
+        <form class="form-inline my-2 my-lg-0" method="post" action="{% url 'search_query' %}">
+            {% csrf_token %}
+            <div class="d-flex flex-row">
+                <input class="form-control" type="search" name="s" placeholder="{% trans 'Search' %}" value="{{ search }}" aria-label="Search" required>
+                <button class="btn btn-main-color" type="submit">{% trans 'Search' %}</button>
+            </div>
+        </form>
+    </header>
+
+    <section class="banners-list d-flex">
+    {% if search_results %}
+        {% for result in search_results %}
+            <a href="{% url 'shows_detail' result.id %}">
+                <div class="banner d-flex flex-column">
+                    <img src="{{ result.banner.url }}">
+                    <h1>{{ result }}</h1>
+                    <h2 class="text-center"><span class="badge bg-second-color mb-1">{% trans 'Followed by' %} {{ result.show.followers.count }} {% trans 'people' %}</span></h2>
+                </div>
+            </a>
+        {% endfor %}
+    {% else %}
+        <h2 class="h2 mt-4 text-center">{% trans "We didn't find any results" %} 😓</h2>
+    {% endif %}
+    </section>
+{% endblock %}
